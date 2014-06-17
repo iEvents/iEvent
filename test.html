@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Page Title</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+	</head>
+
+	<body>
+
+		<!-- Start of first page -->
+		<div data-role="page" id="foo">
+
+			<div data-role="header">
+				<h1>Foo</h1>
+			</div><!-- /header -->
+
+			<div role="main" class="ui-content">
+				<p>
+					I'm first in the source order so I'm shown as the page.
+				</p>
+				<p>
+					View internal page called <a href="#bar">bar</a>
+				</p>
+
+			</div><!-- /content -->
+
+			<div data-role="footer">
+				<h4>Page Footer</h4>
+			</div><!-- /footer -->
+		</div><!-- /page -->
+
+		<!-- Start of second page -->
+		<div data-role="page" id="bar">
+
+			<div data-role="header">
+				<h1>Bar</h1>
+			</div><!-- /header -->
+
+			<div role="main" class="ui-content">
+				<p>
+					I'm the second in the source order so I'm hidden when the page loads. I'm just shown if a link that references my id is beeing clicked.
+				</p>
+				<p>
+					<a href="#foo">Back to foo</a>
+				</p>
+				<form>
+
+					<!-- Collapsible -->
+					<div data-role="collapsibleset" data-theme="a" data-content-theme="a">
+						<!-- Beschreibung -->
+						<div data-role="collapsible">
+							<h3>Beschreibung</h3>
+
+							<legend>
+								Legend
+							</legend>
+							<label for="textinput-f">Text Input:</label>
+							<input name="textinput-f" id="textinput-f" placeholder="Text input" value="" type="text">
+							<div data-role="controlgroup">
+								<input name="checkbox-1-a" id="checkbox-1-a" type="checkbox">
+								<label for="checkbox-1-a">One</label>
+								<input name="checkbox-2-a" id="checkbox-2-a" type="checkbox">
+								<label for="checkbox-2-a">Two</label>
+								<input name="checkbox-3-a" id="checkbox-3-a" type="checkbox">
+								<label for="checkbox-3-a">Three</label>
+							</div>
+						</div>
+						<!-- Übersicht -->
+						<div data-role="collapsible">
+							<h3>Section 2</h3>
+							<p>
+								I'm the collapsible content for section 2
+							</p>
+						</div>
+						<div data-role="collapsible">
+							<h3>Section 3</h3>
+							<p>
+								I'm the collapsible content for section 3
+							</p>
+						</div>
+					</div>
+
+				</form>
+			</div><!-- /content -->
+
+			<div data-role="footer">
+				<h4>Page Footer</h4>
+			</div><!-- /footer -->
+		</div><!-- /page -->
+	</body>
+</html>
