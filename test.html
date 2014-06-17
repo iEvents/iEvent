@@ -5,8 +5,16 @@
 		<title>Page Title</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+		<!-- DATE -->
+		<link rel="stylesheet" type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.min.css" />
+		<!-- DATE STOP -->
 		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+		<!-- DATE --> 
+		<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.core.min.js"></script>
+		<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.calbox.min.js"></script>
+		<script type="text/javascript" src="  http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.datebox.min.js"></script>
+		<!-- DATE STOP -->
 	</head>
 
 	<body>
@@ -105,7 +113,12 @@
 					<!-- Datum/Zeit -->
 					<div data-role="collapsible" data-collapsed-icon="clock">
 						<h3>Datum/Zeit</h3>
-						<input data-role="date" type="text">
+						<div>
+  							<input type="date" id="date_val" data-role="datebox" style="margin-top: 10px" data-options='{"mode": "calbox", "useNewStyle":true,"useFocus": true}'>
+						</div>
+						<div>
+  							<input type="date" id="date_val" data-role="datebox" style="margin-top: 10px" data-options='{"mode": "calbox", "useNewStyle":true,"useFocus": true}'>
+						</div>
 					</div>
 					<!-- Share -->
 					<div data-role="collapsible" data-collapsed-icon="comment">
