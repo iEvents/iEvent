@@ -8,9 +8,10 @@
 		<!-- DATE -->
 		<link rel="stylesheet" type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.min.css" />
 		<!-- DATE STOP -->
+		<link rel="stylesheet" href="css/my.css">
 		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
-		<!-- DATE --> 
+		<!-- DATE -->
 		<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.core.min.js"></script>
 		<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.calbox.min.js"></script>
 		<script type="text/javascript" src="  http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.datebox.min.js"></script>
@@ -47,7 +48,21 @@
 			<div data-role="header">
 				<h1>iEvent</h1>
 			</div><!-- /header -->
-
+			
+			<!-- list lseft -->
+			<div id="eventlist" class="content-list">
+				<!-- <ul class="events ui-listview" data-role="listview" data-filter="true"></ul> -->
+				<ul data-role="listview" data-filter="true" data-filter-placeholder="Search fruits..." data-inset="true">
+   					<li><a href="#">Apple</a></li>
+					<li><a href="#">Banana</a></li>
+    				<li><a href="#">Cherry</a></li>
+					<li><a href="#">Cranberry</a></li>
+					<li><a href="#">Grape</a></li>
+					<li><a href="#">Orange</a></li>
+				</ul>		
+			</div>
+			<!-- /list left -->
+			
 			<div role="main" class="ui-content">
 				<p>
 					<a href="#home">back</a>
@@ -63,8 +78,9 @@
 						<input name="textinput-a" id="textinput-a" value="" type="text">
 
 						<label for="textarea-1">Beschreibung:</label>
-						<textarea name="textarea-1" id="textarea-1"></textarea>																								
+						<textarea name="textarea-1" id="textarea-1"></textarea>																														
 						
+
 
 
 
@@ -114,10 +130,10 @@
 					<div data-role="collapsible" data-collapsed-icon="clock">
 						<h3>Datum/Zeit</h3>
 						<div>
-  							<input type="date" id="date_val" data-role="datebox" style="margin-top: 10px" data-options='{"mode": "calbox", "useNewStyle":true,"useFocus": true}'>
+							<input type="date" id="date_val" data-role="datebox" style="margin-top: 10px" data-options='{"mode": "calbox", "useNewStyle":true,"useFocus": true}'>
 						</div>
 						<div>
-  							<input type="date" id="date_val" data-role="datebox" style="margin-top: 10px" data-options='{"mode": "calbox", "useNewStyle":true,"useFocus": true}'>
+							<input type="date" id="date_val" data-role="datebox" style="margin-top: 10px" data-options='{"mode": "calbox", "useNewStyle":true,"useFocus": true}'>
 						</div>
 					</div>
 					<!-- Share -->
