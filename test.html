@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="utf-8">
 		<title>Page Title</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
@@ -11,10 +12,10 @@
 	<body>
 
 		<!-- Start of first page -->
-		<div data-role="page" id="foo">
+		<div data-role="page" id="home">
 
 			<div data-role="header">
-				<h1>Foo</h1>
+				<h1>iEvent</h1>
 			</div><!-- /header -->
 
 			<div role="main" class="ui-content">
@@ -36,54 +37,109 @@
 		<div data-role="page" id="bar">
 
 			<div data-role="header">
-				<h1>Bar</h1>
+				<h1>iEvent</h1>
 			</div><!-- /header -->
 
 			<div role="main" class="ui-content">
 				<p>
-					I'm the second in the source order so I'm hidden when the page loads. I'm just shown if a link that references my id is beeing clicked.
+					<a href="#home">back</a>
 				</p>
-				<p>
-					<a href="#foo">Back to foo</a>
-				</p>
-				<form>
 
-					<!-- Collapsible -->
-					<div data-role="collapsibleset" data-theme="a" data-content-theme="a">
-						<!-- Beschreibung -->
-						<div data-role="collapsible">
-							<h3>Beschreibung</h3>
+				<!-- Collapsible -->
+				<div data-role="collapsibleset" data-theme="a" data-content-theme="a">
+					<!-- Beschreibung -->
+					<div data-role="collapsible" data-collapsed-icon="info">
+						<h3>Beschreibung</h3>
 
-							<legend>
-								Legend
-							</legend>
-							<label for="textinput-f">Text Input:</label>
-							<input name="textinput-f" id="textinput-f" placeholder="Text input" value="" type="text">
-							<div data-role="controlgroup">
-								<input name="checkbox-1-a" id="checkbox-1-a" type="checkbox">
-								<label for="checkbox-1-a">One</label>
-								<input name="checkbox-2-a" id="checkbox-2-a" type="checkbox">
-								<label for="checkbox-2-a">Two</label>
-								<input name="checkbox-3-a" id="checkbox-3-a" type="checkbox">
-								<label for="checkbox-3-a">Three</label>
-							</div>
-						</div>
-						<!-- Übersicht -->
-						<div data-role="collapsible">
-							<h3>Section 2</h3>
-							<p>
-								I'm the collapsible content for section 2
-							</p>
-						</div>
-						<div data-role="collapsible">
-							<h3>Section 3</h3>
-							<p>
-								I'm the collapsible content for section 3
-							</p>
-						</div>
+						<label for="textinput-a">Eventname: </label>
+						<input name="textinput-a" id="textinput-a" value="" type="text">
+
+						<label for="textarea-1">Beschreibung:</label>
+						<textarea name="textarea-1" id="textarea-1"></textarea>																								
+						
+
+
+
+
 					</div>
+					<!-- Übersicht -->
+					<div data-role="collapsible" data-collapsed-icon="user">
+						<h3>Übersicht</h3>
+						<table data-role="table" id="participant-table-custom" data-mode="reflow" class="ui-responsive">
+							<thead>
+								<tr>
+									<th data-priority="1" style="width:60%">Person</th>
+									<th>Teilnahme</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Max Mustermann</td>
+									<td class="title"><label>
+										<input name="checkbox-0 " type="checkbox">
+										nimmt teil </label></td>
+								</tr>
+							</tbody>
+						</table>
 
-				</form>
+					</div>
+					<!-- Location -->
+					<div data-role="collapsible" data-collapsed="true" data-collapsed-icon="location">
+						<h3>Location</h3>
+						<label for="textarea-2">Ort:</label>
+						<textarea name="textarea-2" id="textarea-2"></textarea>
+						<label>
+							<input name="checkbox-0 " type="checkbox">
+							Map </label>
+
+						<div role="main" class="ui-content" id="map-canvas">
+							<!-- map loads here... -->
+						</div>
+
+						<div data-role="ort" id="adr">
+							<br />
+							<div id="adresse"></div>
+						</div>
+
+					</div>
+					<!-- Datum/Zeit -->
+					<div data-role="collapsible" data-collapsed-icon="clock">
+						<h3>Datum/Zeit</h3>
+						<input data-role="date" type="text">
+					</div>
+					<!-- Share -->
+					<div data-role="collapsible" data-collapsed-icon="comment">
+						<h3>Share</h3>
+						<!-- Share Buttons -->
+						<div data-role="navbar">
+							<ul>
+								<li>
+									<a id="facebookButton" href="" >Mit Twitter teilen</a>
+								</li>
+								<li>
+									<a id="twitterButton" href="" >Mit Facebook teilen</a>
+								</li>
+								<!-- V1.4 Changed -->
+							</ul>
+						</div>
+						<!-- /Share Buttons -->
+					</div>
+				</div>
+
+				<!-- Aktionen -->
+				<div data-role="navbar">
+					<ul>
+						<li>
+							<a id="delWertung" href="" data-icon="delete">Löschen</a>
+						</li>
+						<li>
+							<a id="saveWertung" href="" data-icon="check">Speichern</a>
+						</li>
+						<!-- V1.4 Changed -->
+					</ul>
+				</div>
+				<!-- /Aktionen -->
+
 			</div><!-- /content -->
 
 			<div data-role="footer">
