@@ -203,10 +203,55 @@
 
 				<p>
 					<a href="#event-home">back</a>
+					<a href="#event-answer">answer</a>
 				</p>
 
 			</div><!-- /content -->
 
 		</div><!-- /page -->
+		
+		<!-- answer-page -->
+		<div data-role="page" id="event-answer" data-dom-cache="true">
+			<div data-role="header">
+				<h1>iEvent Anmeldung</h1>
+			</div><!-- /header -->
+
+			<div role="main" class="ui-content">
+				<h2>Do you want to join this Event?</h2>
+				<!-- Daten beziehen!!! -->
+				<label for="textinput-a">Eventname: </label>
+				<input name="textinput-a" id="textinput-a" value="" type="text">
+				
+				<label for="textarea-2">Ort:</label>
+				<textarea name="textarea-2" id="textarea-2"></textarea>
+				
+				<label for="textarea-3">Map:</label>
+				
+				<label for="textarea-4">Datum:</label>
+				
+				<label for="textarea-5">Zeit:</label>
+				
+				<!-- /Daten beziehen!!! -->
+				
+				<fieldset data-role="controlgroup" data-type="horizontal">
+				    <legend>Teilnahme:</legend>
+				    <label for="select-custom-11">Wähle Antwort</label>
+				    <select name="select-custom-11" id="select-custom-11" data-native-menu="false">
+				        <option value="#">Ja</option>
+				        <option value="#">Nein</option>
+				    </select>
+				</fieldset>
+								
+				<form>
+					<button class="show-page-loading-msg" data-textonly="false" data-textvisible="false" data-msgtext="" data-inline="true">Senden</button>
+				</form>
+				
+				<p>
+					View internal page called <a href="#event-details">details</a>
+				</p>
+				
+			</div>
+		</div>
+		<!-- /answer-page -->
 	</body>
 </html>
