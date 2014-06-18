@@ -18,6 +18,7 @@ div.starinput {
    .content-list {
       width: 35%;
       float: left;
+      padding: 10px 0px 0px 15px;
    }
    .content-details {
       width: 60%;
