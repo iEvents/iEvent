@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Page Title</title>
+		<title>iEvent</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
 		<!-- DATE -->
@@ -17,22 +17,24 @@
 		<script type="text/javascript" src="  http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.datebox.min.js"></script>
 		<!-- DATE STOP -->
 
+		<!--
 		<script>
-			// DB
-			if (Modernizr.websqldatabase)
-				document.write('<script src="js/db.js">\x3C/script>');
-			else
-				document.write('<script src="js/dbIndexed.js">\x3C/script>');
+		// DB
+		if (Modernizr.websqldatabase)
+		document.write('<script src="js/db.js">\x3C/script>');
+		else
+		document.write('<script src="js/dbIndexed.js">\x3C/script>');
 		</script>
+		-->
 
 		<!-- GEO-Location -->
-		<script src="js/location.js"></script>
+		<!-- <script src="js/location.js"></script> -->
 		<!-- Logik -->
 		<!-- <script src="js/model.js"></script> -->
 		<!-- Events -->
-		<!-- <script src="js/controller.js"></script> -->
+		<script src="js/controller.js"></script>
 		<!-- View -->
-		<script src="js/view.js"></script>
+		<!-- <script src="js/view.js"></script> -->
 		<!-- Cloud-Dienste -->
 		<!-- <script src="js/cloud.js"></script> -->
 		<!-- Main -->
@@ -49,8 +51,8 @@
 
 				<div class="ui-nodisc-icon ui-alt-icon ui-btn-left">
 					<!-- Classes added to the wrapper -->
-					<a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-refresh ui-btn-icon-notext ui-btn-inline">Refresh</a>
-					<a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-plus ui-btn-icon-notext ui-btn-inline">Add</a>
+					<a href="#" id="refresh" class="ui-btn ui-shadow ui-corner-all ui-icon-refresh ui-btn-icon-notext ui-btn-inline">Refresh</a>
+					<a href="#" id="add" class="ui-btn ui-shadow ui-corner-all ui-icon-plus ui-btn-icon-notext ui-btn-inline">Add</a>
 				</div>
 			</div><!-- /header -->
 
@@ -71,8 +73,8 @@
 
 				<div class="ui-nodisc-icon ui-alt-icon ui-btn-left">
 					<!-- Classes added to the wrapper -->
-					<a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-refresh ui-btn-icon-notext ui-btn-inline">Refresh</a>
-					<a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-plus ui-btn-icon-notext ui-btn-inline">Add</a>
+					<a href="#" id="refresh" class="ui-btn ui-shadow ui-corner-all ui-icon-refresh ui-btn-icon-notext ui-btn-inline">Refresh</a>
+					<a href="#" id="add" class="ui-btn ui-shadow ui-corner-all ui-icon-plus ui-btn-icon-notext ui-btn-inline">Add</a>
 				</div>
 			</div><!-- /header -->
 
