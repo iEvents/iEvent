@@ -67,7 +67,6 @@ var WhiskyAppController = function() {
 
       // Page wechseln
       if (WhiskyApp.tablet == false)
-//         $.mobile.changePage("#whisky-details", {
          $( "body" ).pagecontainer( "change", "#whisky-details", {   // geändert in jQM 1.4
             transition : "none"
          });

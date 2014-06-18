@@ -30,11 +30,11 @@
 		<!-- GEO-Location -->
 		<!-- <script src="js/location.js"></script> -->
 		<!-- Logik -->
-		<!-- <script src="js/model.js"></script> -->
+		<script src="js/model.js"></script>
 		<!-- Events -->
 		<script src="js/controller.js"></script>
 		<!-- View -->
-		<!-- <script src="js/view.js"></script> -->
+		<script src="js/view.js"></script>
 		<!-- Cloud-Dienste -->
 		<!-- <script src="js/cloud.js"></script> -->
 		<!-- Main -->
@@ -112,11 +112,11 @@
 					<div data-role="collapsible" data-collapsed-icon="info">
 						<h3>Beschreibung</h3>
 
-						<label for="textinput-a">Eventname: </label>
-						<input name="textinput-a" id="textinput-a" value="" type="text">
+						<label for="eventname">Eventname: </label>
+						<input name="eventname" id="eventname" value="" type="text">
 
-						<label for="textarea-1">Beschreibung:</label>
-						<textarea name="textarea-1" id="textarea-1"></textarea>
+						<label for="description">Beschreibung:</label>
+						<textarea name="description" id="description"></textarea>
 					</div>
 					<!-- Übersicht -->
 					<div data-role="collapsible" data-collapsed-icon="user">
@@ -132,7 +132,7 @@
 								<tr>
 									<td>Max Mustermann</td>
 									<td class="check"><label>
-										<input name="checkbox-0 " type="checkbox">
+										<input name="checkMeIn" type="checkbox">
 										nimmt teil </label></td>
 								</tr>
 							</tbody>
@@ -142,8 +142,8 @@
 					<!-- Location -->
 					<div data-role="collapsible" data-collapsed="true" data-collapsed-icon="location">
 						<h3>Location</h3>
-						<label for="textarea-2">Ort:</label>
-						<textarea name="textarea-2" id="textarea-2"></textarea>
+						<label for="location">Ort:</label>
+						<textarea name="location" id="location"></textarea>
 						<label>
 							<input name="checkbox-1 " type="checkbox">
 							Map </label>
@@ -162,10 +162,10 @@
 					<div data-role="collapsible" data-collapsed-icon="clock">
 						<h3>Datum/Zeit</h3>
 						<div>
-							<input type="date" id="date_val" data-role="datebox" style="margin-top: 10px" data-options='{"mode": "calbox", "useNewStyle":true,"useFocus": true}'>
+							<input type="date" id="dateFrom" data-role="datebox" style="margin-top: 10px" data-options='{"mode": "calbox", "useNewStyle":true,"useFocus": true}'>
 						</div>
 						<div>
-							<input type="date" id="date_val2" data-role="datebox" style="margin-top: 10px" data-options='{"mode": "calbox", "useNewStyle":true,"useFocus": true}'>
+							<input type="date" id="dateTo" data-role="datebox" style="margin-top: 10px" data-options='{"mode": "calbox", "useNewStyle":true,"useFocus": true}'>
 						</div>
 					</div>
 					<!-- Share -->
@@ -203,13 +203,33 @@
 
 				<p>
 					<a href="#event-home">back</a>
+					<a href="" id="home">home</a>
 					<a href="#event-answer">answer</a>
 				</p>
+
+				<!-- Event löschen Dialog -->
+				<div data-role="popup" id="delDialog">
+					<div data-role="header" class="ui-corner-top">
+						<h1>Event löschen?</h1>
+					</div>
+					<div class="ui-content ui-corner-bottom ui-content">
+						<!-- V1.4 Changed -->
+						<h3 class="ui-title">Event wirklich löschen?</h3>
+						<p>
+							Diese Aktion kann nicht rückgängig gemacht werden.
+						</p>
+						<a id="delNo" href="" data-role="button" data-inline="true"
+						data-icon="back">Nein</a>
+						<a id="delRealy" href="" data-role="button" data-inline="true"
+						data-transition="flow" data-icon="delete">Löschen</a>
+					</div>
+				</div>
+				<!-- Event löschen Dialog -->
 
 			</div><!-- /content -->
 
 		</div><!-- /page -->
-		
+
 		<!-- answer-page -->
 		<div data-role="page" id="event-answer" data-dom-cache="true">
 			<div data-role="header">
@@ -221,35 +241,39 @@
 				<!-- Daten beziehen!!! -->
 				<label for="textinput-a">Eventname: </label>
 				<input name="textinput-a" id="textinput-a" value="" type="text">
-				
+
 				<label for="textarea-2">Ort:</label>
-				<textarea name="textarea-2" id="textarea-2"></textarea>
+				<textarea name="textarea-2" id="textarea-2"></textarea>												
 				
-				<label for="textarea-3">Map:</label>
-				
+ <label for="textarea-3">Map:</label>
+
 				<label for="textarea-4">Datum:</label>
-				
+
 				<label for="textarea-5">Zeit:</label>
-				
+
 				<!-- /Daten beziehen!!! -->
-				
+
 				<fieldset data-role="controlgroup" data-type="horizontal">
-				    <legend>Teilnahme:</legend>
-				    <label for="select-custom-11">Wähle Antwort</label>
-				    <select name="select-custom-11" id="select-custom-11" data-native-menu="false">
-				        <option value="#">Ja</option>
-				        <option value="#">Nein</option>
-				    </select>
+					<legend>
+						Teilnahme:
+					</legend>
+					<label for="select-custom-11">Wähle Antwort</label>
+					<select name="select-custom-11" id="select-custom-11" data-native-menu="false">
+						<option value="#">Ja</option>
+						<option value="#">Nein</option>
+					</select>
 				</fieldset>
-								
+
 				<form>
-					<button class="show-page-loading-msg" data-textonly="false" data-textvisible="false" data-msgtext="" data-inline="true">Senden</button>
+					<button class="show-page-loading-msg" data-textonly="false" data-textvisible="false" data-msgtext="" data-inline="true">
+						Senden
+					</button>
 				</form>
-				
+
 				<p>
 					View internal page called <a href="#event-details">details</a>
 				</p>
-				
+
 			</div>
 		</div>
 		<!-- /answer-page -->

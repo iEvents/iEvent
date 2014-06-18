@@ -105,7 +105,7 @@ var Location = Observer.extend({
       }
 
       // Im Debug-Modus ausgeben, sonst Pech gehabt
-      if (WhiskyApp.debug)
+      if (EventApp.debug)
          console.log(this.locObj.state);
    }
 });

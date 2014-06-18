@@ -2,7 +2,7 @@
  * erstelltes Event.
  */
 var Event = Class.extend({
-   init : function(eventName, description, participants, location, map, date, time, guid) {
+   init : function(eventName, description, participants, location, map, dateFrom, dateTo, time, guid) {
       // GUID als ID (somit keine Probleme bei Verteilten Einträgen)
       if(guid == null)
          this.guid = this.generateGUID();
@@ -14,7 +14,8 @@ var Event = Class.extend({
       this.description = description;
       this.paraticipants = participants;
       this.location = location;
-      this.date = date;
+      this.dateFrom = dateFrom;
+      this.dateTo = dateTo;
       this.time = time;
    
       // Ort durch GeoLocation
@@ -48,7 +49,7 @@ var Happenings = Observer.extend({
          var deleted = this.eventAr.splice(i, 1);
          //this.notify({obj: deleted[0], crud: "D"});
       }
-      WhiskyApp.db.delAll();
+      EventApp.db.delAll();
       
       var dt = new Date();
       dt.setTime(dt.getTime() + 1000);

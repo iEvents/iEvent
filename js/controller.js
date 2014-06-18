@@ -3,83 +3,81 @@
 /** Controller */
 var EventAppController = function() {
 	/** @lends EventAppController */
-	// var actEvent;
-	// // Aktuell bearbeitete Wertug
+	var actEvent;
+	// Aktuell bearbeitetes Event
 	// var valid = new Validator();
-	//
-	// /** Zurück auf Home.
-	// * Quelle: event-details
-	// * Ziel: event-home */
-	// function home() {
-	// if (EventApp.tablet == true) {
-	// $('#delDialog').popup('close');
-	// // Einfach schliessen, auch wenn nicht offen
-	// addHappening();
-	// } else
-	// //$.mobile.changePage("#whisky-home", {
-	// $("body").pagecontainer("change", "#event-home", {// geändert in jQM 1.4
-	// transition : "none"
-	// });
-	// }
-	//
-	// /** Neues Event erstellen.
-	// * Quelle: event-home
-	// * Ziel: event-details */
-	// function addHappening() {
-	// $.mobile.silentScroll();
-	//
-	// // Datum ermitteln, leider muss das ganz genau stimmen
-	// var ldate = new Date();
-	// var disp_date = "";
-	// if ((ldate.getMonth() + 1) < 10) {
-	// if (ldate.getDate() < 10)
-	// disp_date = "0" + ldate.getDate() + ".0" + (ldate.getMonth() + 1) + "." + ldate.getFullYear();
-	// else
-	// disp_date = ldate.getDate() + ".0" + (ldate.getMonth() + 1) + "." + ldate.getFullYear();
-	// } else {
-	// if (ldate.getDate() < 10)
-	// disp_date = "0" + ldate.getDate() + "." + (ldate.getMonth() + 1) + "." + ldate.getFullYear();
-	// else
-	// disp_date = ldate.getDate() + "." + (ldate.getMonth() + 1) + "." + ldate.getFullYear();
-	// }
-	//
-	// // Neues Event mit Default-Werten löschen
-	// actEvent = new Event("Nachttreffen", "bringt Kuchen mit", "noch keiner", "zu Hause", "", "21.6.2014", "16:00", "2", "");
-	//
-	// // und so tun, als ob es eine gäbe...
-	// edit();
-	//
-	// EventApp.locAPI.start(actEvent.guid);
-	//
-	// valid.validate();
-	// // erstmalige Validierung
-	// }
-	//
-	// /** Event darstellen zum editieren
-	// * Quelle: event-home
-	// * Ziel: event-details */
-	// function edit(guid) {
-	// $.mobile.silentScroll();
-	//
-	// // aktuelles Event merken
-	// if (guid != undefined)
-	// actEvent = EventApp.happenings.getEventByID(guid);
-	//
-	// // Page wechseln
-	// if (EventApp.tablet == false)
-	// //         $.mobile.changePage("#event-details", {
-	// $("body").pagecontainer("change", "#event-details", {// geändert in jQM 1.4
-	// transition : "none"
-	// });
-	//
-	// // Werte setzen
-	// refreshEvent();
-	// valid.validate();
-	//
-	// addSliderEvents();
-	// plotUpdate();
-	// }
-	//
+
+	/** Zurück auf Home.
+	 * Quelle: event-details
+	 * Ziel: event-home */
+	function home() {
+		if (EventApp.tablet == true) {
+			$('#delDialog').popup('close');
+			// Einfach schliessen, auch wenn nicht offen
+			addHappening();
+		} else
+			//$.mobile.changePage("#whisky-home", {
+			$("body").pagecontainer("change", "#event-home");
+	}
+
+	/** Neues Event erstellen.
+	 * Quelle: event-home
+	 * Ziel: event-details */
+	function addHappening() {
+		$.mobile.silentScroll();
+
+		// Datum ermitteln, leider muss das ganz genau stimmen
+		// var ldate = new Date();
+		// var disp_date = "";
+		// if ((ldate.getMonth() + 1) < 10) {
+		// if (ldate.getDate() < 10)
+		// disp_date = "0" + ldate.getDate() + ".0" + (ldate.getMonth() + 1) + "." + ldate.getFullYear();
+		// else
+		// disp_date = ldate.getDate() + ".0" + (ldate.getMonth() + 1) + "." + ldate.getFullYear();
+		// } else {
+		// if (ldate.getDate() < 10)
+		// disp_date = "0" + ldate.getDate() + "." + (ldate.getMonth() + 1) + "." + ldate.getFullYear();
+		// else
+		// disp_date = ldate.getDate() + "." + (ldate.getMonth() + 1) + "." + ldate.getFullYear();
+		// }
+
+		// Neues Event mit Default-Werten löschen
+		actEvent = new Event("Nachttreffen", "bringt Kuchen mit", "noch keiner", "zu Hause", "", "21.6.2014", "16:00", "2", "");
+
+		// und so tun, als ob es eine gäbe...
+		// edit();
+
+		// EventApp.locAPI.start(actEvent.guid);
+
+		// erstmalige Validierung
+		// valid.validate();
+	}
+
+	/** Event darstellen zum editieren
+	 * Quelle: event-home
+	 * Ziel: event-details */
+	function edit(guid) {
+		$.mobile.silentScroll();
+
+		alert("asdf");
+
+		// aktuelles Event merken
+		if (guid != undefined)
+			actEvent = EventApp.happenings.getEventByID(guid);
+
+		// Page wechseln
+		if (EventApp.tablet == false)
+			$("body").pagecontainer("change", "#event-details");
+
+		// Werte setzen
+		// refreshEvent();
+		// valid.validate();
+		//
+		// addSliderEvents();
+		// plotUpdate();
+
+	}
+
 	// /** Event löschen.
 	// * Quelle: event-details
 	// * Ziel: event-home */
@@ -96,68 +94,44 @@ var EventAppController = function() {
 	// });
 	// }
 	//
-	// /** Event speichern.
-	// * Quelle: event-details
-	// * Ziel: event-home */
-	// function saveEvent() {
-	// var e;
-	// // Event hinzufügen
-	// if (actEvent == null)
-	// e = new Event();
-	// else// Wertung updaten
-	// e = actEvent;
-	//
-	// // validierung
-	// if (valid.validate() == false)
-	// return false;
-	//
-	// // Felder holen
-	// // w.date = $('#date', $("body").pagecontainer("getActivePage")).val();
-	// // w.distillery = $('#distillery', $("body").pagecontainer("getActivePage")).val();
-	// // w.bezeichnung = $('#bezeichnung', $("body").pagecontainer("getActivePage")).val();
-	// // w.fass = $('#fass', $("body").pagecontainer("getActivePage")).val();
-	// // w.finishing = $('#finishing', $("body").pagecontainer("getActivePage")).val();
-	// // w.proof = $('#proof', $("body").pagecontainer("getActivePage")).val();
-	// // w.nr = $('#probennr', $( "body" ).pagecontainer( "getActivePage" )).val();
-	// // w.nr = $('#bildView', $("body").pagecontainer("getActivePage")).attr('src');
-	// // w.wertung = $("input:radio:checked[name='wertung']", $("body").pagecontainer("getActivePage")).val();
-	// // w.gtorf = $('#torf', $("body").pagecontainer("getActivePage")).val();
-	// // w.gsherry = $('#sherry', $("body").pagecontainer("getActivePage")).val();
-	// // w.gholz = $('#holz', $("body").pagecontainer("getActivePage")).val();
-	// // w.gfrucht = $('#frucht', $("body").pagecontainer("getActivePage")).val();
-	// // w.gflora = $('#flora', $("body").pagecontainer("getActivePage")).val();
-	// // w.gfeinty = $('#feinty', $("body").pagecontainer("getActivePage")).val();
-	// // w.finish = $('#finish', $("body").pagecontainer("getActivePage")).val();
-	// // w.kommentar = $('#kommentar', $("body").pagecontainer("getActivePage")).val();
-	//
-	// // Eintrag hinzufügen/erzeugen (wird in Methode entschieden)
-	// EventApp.happenings.edit(e);
-	//
-	// if (EventApp.tablet == false)
-	// //         $.mobile.changePage("#event-home", {
-	// $("body").pagecontainer("change", "#event-home", {// geändert in jQM 1.4
-	// transition : "none"
-	// });
-	// else
-	// addHappening();
-	// }
-	//
-	//
-	// // /** About-Seite als Dialog.
-	// // * Quelle: event-home
-	// // * Ziel: about.html */
-	// // function about() {
-	// // //      $.mobile.changePage("about.html", {
-	// // $("body").pagecontainer("change", "about.html", {// geändert in jQM 1.4
-	// // transition : "none",
-	// // role : "dialog",
-	// // changeHash : true
-	// // });
-	// // }
-	//
-	//
-	//
-	//
+	/** Event speichern.
+	 * Quelle: event-details
+	 * Ziel: event-home */
+	function saveEvent() {
+		var e;
+
+		alert($('#eventname', $("body").pagecontainer("getActivePage")).val() + $('#description', $("body").pagecontainer("getActivePage")).val() +
+		// e.participants = $('#participants', $("body").pagecontainer("getActivePage")).val();
+		$('#location', $("body").pagecontainer("getActivePage")).val() + $('#dateFrom', $("body").pagecontainer("getActivePage")).val() + $('#dateTo', $("body").pagecontainer("getActivePage")).val());
+
+		// Event hinzufügen
+		if (actEvent == null)
+			e = new Event();
+		else// Wertung updaten
+			e = actEvent;
+
+		// validierung
+		// if (valid.validate() == false)
+		// return false;
+
+		// Felder holen
+		e.eventName = $('#eventname', $("body").pagecontainer("getActivePage")).val();
+		e.description = $('#description', $("body").pagecontainer("getActivePage")).val();
+		// e.participants = $('#participants', $("body").pagecontainer("getActivePage")).val();
+		e.location = $('#location', $("body").pagecontainer("getActivePage")).val();
+		e.dateFrom = $('#dateFrom', $("body").pagecontainer("getActivePage")).val();
+		e.dateTo = $('#dateTo', $("body").pagecontainer("getActivePage")).val();
+
+		// Eintrag hinzufügen/erzeugen (wird in Methode entschieden)
+		EventApp.happenings.edit(e);
+
+		if (EventApp.tablet == false)
+			//         $.mobile.changePage("#event-home", {
+			$("body").pagecontainer("change", "#event-home");
+		else
+			addHappening();
+	}
+
 	// /** Aktualisiert Events-Page
 	// */
 	// function refreshEvent() {
@@ -340,126 +314,63 @@ var EventAppController = function() {
 	return {
 		initialize : function() {
 
+			// Refresh-Button
 			$("#refresh").click(function() {
-				alert("say what");
+				location.reload(true);
 			});
 
-			$("#add").click(function() {
-				alert("nope nope nope");
+			// Add-Button in der Liste
+			$("#add").bind('vclick', function(event) {
+				event.preventDefault();
+				addHappening();
+				return false;
 			});
 
-			// // Bild
-			//
-			// $("#bild").change(handleFileSelect);
-			//
-			// // Add-Button in der Liste
-			// $("#newWertung").bind('vclick', function(event) {
-			// event.preventDefault();
-			// addTasting();
-			// return false;
-			// });
-			//
-			// // About-Dialog
-			// $("#about").click(about);
-			//
-			// // Home-Button
-			// $("#home").click(home);
-			//
-			// // Delete-Button
-			// $("#delWertung").click(function() {
-			// $('#delDialog').popup('open')
-			// });
-			// $("#delRealy").click(function(event) {
-			// event.preventDefault();
-			// deleteWertung();
-			// return false;
-			// });
-			// $("#delNo").click(function() {
-			// $('#delDialog').popup('close')
-			// });
-			//
-			// // Save-Button
-			// $("#saveWertung").bind('vclick', function(event) {
-			// event.preventDefault();
-			// saveWertung();
-			// return false;
-			// });
-			//
-			// // Tooltips
-			// $("#labelTorf").bind('click', function() {
-			// $('#tooltipTorf').popup('open', {
-			// positionTo : '#torf'
-			// })
-			// });
-			// $("#labelSherry").bind('click', function() {
-			// $('#tooltipSherry').popup('open', {
-			// positionTo : '#sherry'
-			// })
-			// });
-			// $("#labelHolz").bind('click', function() {
-			// $('#tooltipHolz').popup('open', {
-			// positionTo : '#holz'
-			// })
-			// });
-			// $("#labelFrucht").bind('click', function() {
-			// $('#tooltipFrucht').popup('open', {
-			// positionTo : '#frucht'
-			// })
-			// });
-			// $("#labelFlora").bind('click', function() {
-			// $('#tooltipFlora').popup('open', {
-			// positionTo : '#flora'
-			// })
-			// });
-			// $("#labelFeinty").bind('click', function() {
-			// $('#tooltipFeinty').popup('open', {
-			// positionTo : '#feinty'
-			// })
-			// });
-			//
+			// Home-Button
+			$("#home").click(home);
+
+			// Delete-Button
+			$("#delEvent").click(function() {
+				$('#delDialog').popup('open')
+			});
+			$("#delRealy").click(function(event) {
+				event.preventDefault();
+				// deleteEvent();
+				console.log('Event wurde gelöscht');
+				return false;
+			});
+			$("#delNo").click(function() {
+				$('#delDialog').popup('close')
+			});
+
+			// Save-Button
+			$("#saveEvent").bind('vclick', function(event) {
+				event.preventDefault();
+				saveEvent();
+				return false;
+			});
+
 			// // Live-Validierung
 			// valid.autoValidate();
 			//
-			// // Slider-Events
-			// addSliderEvents();
-			//
 			// // Facebook
 			// $("#facebook").click(toFacebook);
-			//
-			// // Backup / Restore
-			// $("#sync").bind('vclick', backupdialog);
-			// $("#backup").bind('vclick', backup);
-			// $("#restore").bind('vclick', restore);
-			//
-			// // Distillery-Suche
-			// $("#distillery").autocomplete({
-			// target : $('#suggestions'),
-			// source : WhiskyApp.cloud.distilleries,
-			// callback : function(e) {
-			// var $a = $(e.currentTarget);
-			// $('#distillery', $("body").pagecontainer("getActivePage")).val($a.text());
-			// $('#distillery', $("body").pagecontainer("getActivePage")).autocomplete('clear');
-			// },
-			// minLength : 2,
-			// matchFromStart : false
-			// });
 
 		}
-		
 		// ,
 		// /* click auf Eintrag */
 		// edit : function(guid) {
-			// edit(guid);
+		// edit(guid);
 		// },
 		// /* click auf Eintrag */
 		// firstView : function() {
-			// // addTasting();
+		// // addTasting();
 		// },
 		// getGUID : function() {
-			// // return actWertung.guid;
+		// // return actWertung.guid;
 		// },
 		// setMap : function(locObj) {
-			// // actWertung.ort = locObj;
+		// // actWertung.ort = locObj;
 		// }
 	};
 }

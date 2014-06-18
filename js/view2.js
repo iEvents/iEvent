@@ -2,13 +2,17 @@
 
 /**
  *  UPDATE METHODE
- *  Aktualisiert der Events-Liste */
-var EventView = View.extend({
+ *  Aktualisiert der Wertungs-Liste */
+var WhiskyView = View.extend({
    init : function() {
       this._super();
    },
    /** Sortierung des Tasting-Arrays */
-
+   sortAlg : function(a, b) {
+      a = a.distillery.toLowerCase();
+      b = b.distillery.toLowerCase();
+      return (a == b) ? 0 : (a > b) ? 1 : -1;
+   },
    /** GUI aktualisieren */
    update : function(scope, data) {
       var actTitel = "";
@@ -16,12 +20,14 @@ var EventView = View.extend({
       var line = "";
 
       // (1) Alte Listview löschen
-      $('#eventlist ul li').remove();
+      $('#whiskylist ul li').remove();
 
-      var ar = scope.getEvents();
-      // (2) alle Events lesen
+      var ar = scope.getWertungen();
+      // (2) alle Wertungen lesen
+      ar.sort(this.sortAlg);
+      // und sortieren
 
-      // (3) Durch die Events gehen
+      // (3) Durch die Wertungen gehen
       for (var i = 0; i < ar.length; i++) {
          // Titel
          if (ar[i].distillery != actTitel) {
@@ -59,6 +65,14 @@ var EventView = View.extend({
          // Wertung (Sterne)
          newEntryRow.find('input[value=' + ar[i].wertung + ']').prop('checked', true);
          newEntryRow.find('input[type=radio]').prop('name', 'list-' + i);
+
+         // Bilder setzen
+         if (ar[i].gfrucht >= 5)
+            newEntryRow.find('.ui-li-icon').attr("src", "img/fruit.png");
+         if (ar[i].gsherry >= 5)
+            newEntryRow.find('.ui-li-icon').attr("src", "img/cherry.png");
+         if (ar[i].gtorf >= 5)
+            newEntryRow.find('.ui-li-icon').attr("src", "img/peat.png");
 
          // Event-Listener setzen auf Clicken
          newEntryRow.click(function(event) {
